@@ -1,13 +1,14 @@
+/* eslint-disable react/require-default-props */
 import PropTypes from "prop-types";
 import { getMonth } from "../../helpers/Date";
 
 import "./style.scss";
 
 const EventCard = ({
-  imageSrc,
-  imageAlt,
+  imageSrc = "",
+  imageAlt = "image",
   date = new Date(),
-  title,
+  title = "title",
   label,
   small = false,
   ...props
@@ -37,12 +38,6 @@ EventCard.propTypes = {
   label: PropTypes.string.isRequired,
 };
 
-EventCard.defaultProps = {
-  imageAlt: "image",
-  small: false,
-  title: "title",
-  imageSrc: "",
-}
 
 export default EventCard;
 

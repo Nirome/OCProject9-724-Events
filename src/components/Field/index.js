@@ -1,5 +1,5 @@
+/* eslint-disable react/require-default-props */
 import PropTypes from "prop-types";
-
 import "./style.scss";
 
 export const FIELD_TYPES = {
@@ -7,7 +7,12 @@ export const FIELD_TYPES = {
   TEXTAREA: 2,
 };
 
-const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
+const Field = ({ 
+  type = FIELD_TYPES.INPUT_TEXT, 
+  label = "", 
+  name = "field-name",
+  placeholder = "" 
+}) => {
   let component;
   switch (type) {
     case FIELD_TYPES.INPUT_TEXT:
@@ -47,11 +52,5 @@ Field.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
 };
- Field.defaultProps = {
-   label: "",
-   placeholder: "",
-   type: FIELD_TYPES.INPUT_TEXT,
-   name: "field-name",
- }
-
+ 
 export default Field;
