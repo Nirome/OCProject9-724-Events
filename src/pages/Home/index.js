@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Menu from "../../containers/Menu";
 import ServiceCard from "../../components/ServiceCard";
 import EventCard from "../../components/EventCard";
@@ -156,5 +157,5 @@ const Page = () => {
     </footer>
   </>
 }
-console.log(useData);
+
 export default Page;
