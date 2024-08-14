@@ -12,6 +12,7 @@ import Icon from "../../components/Icon";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
+import ModalEvent from "../../containers/ModalEvent";
 
 const Page = () => {
   const {last} = useData()
@@ -117,13 +118,22 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
-          small
-          label="boom"
-        />
+        {last && (
+          <Modal
+            Content={<ModalEvent event={last} />} 
+          >
+            {({ setIsOpened }) => (
+              <EventCard
+                imageSrc={last?.cover}
+                title={last?.title}
+                date={new Date(last?.date)}
+                small
+                label="boom"
+                onClick={() => setIsOpened(true)} 
+              />
+            )}
+          </Modal>
+        )}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
